@@ -27,6 +27,10 @@ Just add @skywalker to a function that returns a matplotlib figure object to sav
         return fig
 
 
+### Updates
+If you want to cite this code:
+
+**v0.0.1**  [![DOI](https://zenodo.org/badge/134632789.svg)](https://zenodo.org/badge/latestdoi/134632789)
 
 
 
