@@ -1,3 +1,6 @@
+#python setup.py sdist upload -r test
+#python setup.py sdist upload
+
 from setuptools import setup
 
 # Extract version
@@ -13,7 +16,7 @@ def setup_package():
         name='skywalker',
         version=get_version(),
         description='Python decorator to handle matplotlib options',
-        long_description="See: `github.com/dgerosa/skywalker <https://github.com/dgerosa/skywalker>`_." ,
+        long_description="`https://github.com/dgerosa/skywalker <https://github.com/dgerosa/skywalker>`_" ,
         url='https://github.com/dgerosa/skywalker',
         author='Davide Gerosa',
         author_email='dgerosa@caltech.edu',
