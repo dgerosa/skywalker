@@ -2,7 +2,7 @@ from setuptools import setup
 
 # Extract version
 def get_version():
-    with open('plotmenow/plotmenow.py') as f:
+    with open('skywalker/skywalker.py') as f:
         for line in f.readlines():
             if "__version__" in line:
                 return line.split('"')[1]
@@ -10,16 +10,16 @@ def get_version():
 def setup_package():
 
     metadata = dict(
-        name='plotmenow',
+        name='skywalker',
         version=get_version(),
         description='Python decorator to handle matplotlib options',
-        long_description="See: `github.com/dgerosa/plotmenow <https://github.com/dgerosa/plotmenow>`_." ,
-        url='https://github.com/dgerosa/plotmenow',
+        long_description="See: `github.com/dgerosa/skywalker <https://github.com/dgerosa/skywalker>`_." ,
+        url='https://github.com/dgerosa/skywalker',
         author='Davide Gerosa',
         author_email='dgerosa@caltech.edu',
         license='MIT',
-        packages=['plotme'],
-        install_requires=['matplotlib'],
+        packages=['skywalker'],
+        install_requires=['matplotlib','tqdm'],
         include_package_data=True,
         zip_safe=False,
     )
