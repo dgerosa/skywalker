@@ -5,7 +5,7 @@ See: https://github.com/dgerosa/plotme
 __author__ = "Davide Gerosa"
 __email__ = "dgerosa@caltech.edu"
 __license__ = "MIT"
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 __doc__+="\n\n"+"Authors: "+__author__+"\n"+\
         "email: "+__email__+"\n"+\
         "Licence: "+__license__+"\n"+\
@@ -14,7 +14,7 @@ __doc__+="\n\n"+"Authors: "+__author__+"\n"+\
 from tqdm import tqdm
 import warnings
 
-def skywalker(function):
+def plot(function):
     '''Python decorator to handle plotting, including defining all defaults and storing the final pdf. Just add @plotme before a function and return the matplotlib figure object(s).'''
 
     def wrapper():

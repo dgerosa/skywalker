@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
-from skywalker import skywalker
+import skywalker
 
-@skywalker
+@skywalker.plot
 def test():
 
     x=range(100)
