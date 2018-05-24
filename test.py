@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import skywalker
 
 @skywalker.plot
-def test():
+def test_plot():
 
     x=range(100)
     y=range(100)

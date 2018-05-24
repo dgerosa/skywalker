@@ -15,7 +15,7 @@ def setup_package():
     metadata = dict(
         name='skywalker',
         version=get_version(),
-        description='Python decorator to handle matplotlib options',
+        description='Things I like in python',
         long_description="`https://github.com/dgerosa/skywalker <https://github.com/dgerosa/skywalker>`_" ,
         url='https://github.com/dgerosa/skywalker',
         author='Davide Gerosa',
