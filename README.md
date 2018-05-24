@@ -1,7 +1,7 @@
 # skywalker
-Python decorator to handle matplotlib options
+Things I like in python
 
-This is a simple python decorator to take care of importing matplotlib, set various rc values and save the pdf.
+This is a module which contains some of the things I like in python. I was tired of copying the same snippets over and over, so I put them in a module to be imported from everywhere.
 
 ### Installation
 
@@ -9,14 +9,15 @@ pip install skywalker
 
 ### Usage
 
-Just add @skywalker to a function that returns a matplotlib figure object to save it to pdf. If a list of figure objects is returned, save a single pdf with many pages.
+#### skywalker.plot
 
+This is a decorator to handle various matplotlib options, including saving the file to pdf. Just add @skywalker.plot to a function that returns a matplotlib figure object. If a list of figure objects is returned, save a single pdf with many pages.
 
     import matplotlib.pyplot as plt
-    from skywalker import skywalker
+    import skywalker
 
-    @skywalker
-    def test():
+    @skywalker.plot
+    def test_plot():
 
         x=range(100)
         y=range(100)
