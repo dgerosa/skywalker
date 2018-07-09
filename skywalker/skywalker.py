@@ -17,7 +17,7 @@ import warnings
 def plot(function):
     '''Python decorator to handle plotting, including defining all defaults and storing the final pdf. Just add @plotme before a function and return the matplotlib figure object(s).'''
 
-    def wrapper():
+    def wrapper(*args, **kwargs):
         print("skywalker: "+function.__name__+".pdf")
 
         # Before function call
@@ -44,7 +44,7 @@ def plot(function):
         from matplotlib.colors import LogNorm
         pp= PdfPages(function.__name__+".pdf")
 
-        fig = function()
+        fig = function(*args, **kwargs)
         # Handle multiple figures
         try:
             len(fig)
