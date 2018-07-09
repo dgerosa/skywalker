@@ -5,7 +5,7 @@ See: https://github.com/dgerosa/plotme
 __author__ = "Davide Gerosa"
 __email__ = "dgerosa@caltech.edu"
 __license__ = "MIT"
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 __doc__+="\n\n"+"Authors: "+__author__+"\n"+\
         "email: "+__email__+"\n"+\
         "Licence: "+__license__+"\n"+\
