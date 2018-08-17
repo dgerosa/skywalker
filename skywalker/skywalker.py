@@ -1,24 +1,30 @@
-'''plotme: Python decorator to handle matplotlib options
-See: https://github.com/dgerosa/plotme
+'''skywalker: Things I like in python
+This is a module which contains some of the things I like in python. I was tired of copying the same snippets over and over, so I put them in a module to be imported from everywhere. See: https://github.com/dgerosa/skywalker
 '''
 
-__author__ = "Davide Gerosa"
-__email__ = "dgerosa@caltech.edu"
-__license__ = "MIT"
-__version__ = "0.0.3"
-__doc__+="\n\n"+"Authors: "+__author__+"\n"+\
-        "email: "+__email__+"\n"+\
-        "Licence: "+__license__+"\n"+\
-        "Version: "+__version__
-
-from tqdm import tqdm
+from __future__ import print_function
 import warnings
+warnings.filterwarnings("ignore", message="numpy.dtype size changed")
+
+
+
+if __name__!="__main__":
+    __name__            = "spops"
+__version__             = "0.0.2"
+__description__         = "skywalker: Things I like in python"
+__license__             = "MIT"
+__author__              = "Davide Gerosa"
+__author_email__        = "dgerosa@caltech.edu"
+__url__                 = "https://github.com/dgerosa/skywalker"
+
 
 def plot(function):
     '''Decorator to handle various matplotlib options, including saving the file to pdf. Just add @skywalker.plot to a function that returns a matplotlib figure object. If a list of figure objects is returned, save a single pdf with many pages.'''
 
     def wrapper(*args, **kwargs):
-        print("skywalker: "+function.__name__+".pdf")
+        print("[skywalker.plot] "+function.__name__+".pdf")
+
+        from tqdm import tqdm
 
         # Before function call
         global plt,AutoMinorLocator,MultipleLocator,LogLocator,NullFormatter,LogNorm
@@ -65,14 +71,22 @@ def plot(function):
 
 
 def timer(function):
-    '''Decorator to print a function execution time to screen.'''
-    import contexttimer
-    return contexttimer.timer()(function)
+    from functools import wraps
+    @wraps(function)
+    def wrapper(*args, **kwargs):
+        from contexttimer import Timer
+        import datetime
 
+        with Timer() as t:
+            function(*args, **kwargs)
+
+        print("[skywalker.timer] "+function.__name__+" "+str(datetime.timedelta(seconds=t.elapsed)))
+
+    return wrapper
 
 
 def checkpoint(key,tempdir=False,prefix=None,refresh=False):
-    '''Python decorator to checkpointing to hdf5 files. Add @skywalker.checkpoint(key=filename) before a function and the output will be stored to file and computed only if necessary. Filename can be dynamic, see options of the ediblepickle module.'''
+    '''Decorator to checkpoint the output of a function to hdf5 files. Add @skywalker.checkpoint(key=filename) before a function and the output will be stored to file and computed only if necessary. Filename can be dynamic, see options of the ediblepickle module.'''
 
     import ediblepickle
     import deepdish

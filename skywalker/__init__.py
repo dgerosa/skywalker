@@ -1,9 +1,11 @@
+from .skywalker import __name__
+from .skywalker import __version__
+from .skywalker import __description__
+from .skywalker import __license__
+from .skywalker import __author__
+from .skywalker import __author_email__
+from .skywalker import __url__
 
-import skywalker
-__author__ = skywalker.__author__
-__email__ = skywalker.__email__
-__license__ = skywalker.__license__
-__version__ = skywalker.__version__
-__doc__ = skywalker.__doc__
-
-from skywalker import *
+from .skywalker import plot
+from .skywalker import timer
+from .skywalker import checkpoint

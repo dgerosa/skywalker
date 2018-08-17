@@ -3,33 +3,23 @@
 
 from setuptools import setup
 
-# Extract version
-def get_version():
-    with open('skywalker/skywalker.py') as f:
+def get_meta(metaname):
+    with open('spops/spops.py') as f:
         for line in f.readlines():
-            if "__version__" in line:
+            if "__"+metaname+"__" in line and "__main__" not in line:
                 return line.split('"')[1]
 
-def setup_package():
-
-    metadata = dict(
-        name='skywalker',
-        version=get_version(),
-        description='Things I like in python',
-        long_description="`https://github.com/dgerosa/skywalker <https://github.com/dgerosa/skywalker>`_" ,
-        url='https://github.com/dgerosa/skywalker',
-        author='Davide Gerosa',
-        author_email='dgerosa@caltech.edu',
-        license='MIT',
-        packages=['skywalker'],
-        install_requires=['matplotlib','tqdm','ediblepickle','deepdish','contexttimer'],
-        include_package_data=True,
-        zip_safe=False,
-    )
-
-    setup(**metadata)
-
-
-if __name__ == '__main__':
-
-    setup_package()
+setup(
+    name=get_meta('name'),
+    version=get_meta('version'),
+    description=get_meta('description'),
+    license=get_meta('license'),
+    author=get_meta('author'),
+    author_email=get_meta('author_email'),
+    url=get_meta('url'),
+    long_description="See: `"+get_meta('url')+" <"+get_meta('url')+">`_." ,
+    packages=[get_meta('name')],
+    install_requires=['matplotlib','tqdm','ediblepickle','deepdish','contexttimer'],
+    include_package_data=True,
+    zip_safe=False,
+)
