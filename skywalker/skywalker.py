@@ -15,7 +15,7 @@ from tqdm import tqdm
 import warnings
 
 def plot(function):
-    '''Python decorator to handle plotting, including defining all defaults and storing the final pdf. Just add @plotme before a function and return the matplotlib figure object(s).'''
+    '''Decorator to handle various matplotlib options, including saving the file to pdf. Just add @skywalker.plot to a function that returns a matplotlib figure object. If a list of figure objects is returned, save a single pdf with many pages.'''
 
     def wrapper(*args, **kwargs):
         print("skywalker: "+function.__name__+".pdf")
@@ -61,3 +61,41 @@ def plot(function):
             f.clf()
         pp.close()
     return wrapper
+
+
+
+def timer(function):
+    '''Decorator to print a function execution time to screen.'''
+    import contexttimer
+    return contexttimer.timer()(function)
+
+
+
+def checkpoint(key,tempdir=False,prefix=None,refresh=False):
+    '''Python decorator to checkpointing to hdf5 files. Add @skywalker.checkpoint(key=filename) before a function and the output will be stored to file and computed only if necessary. Filename can be dynamic, see options of the ediblepickle module.'''
+
+    import ediblepickle
+    import deepdish
+    import string
+
+    def _checkpoint_pickler(object,f):
+        deepdish.io.save(f.name,object)
+        pass
+
+    def _checkpoint_unpickler(f):
+        object = deepdish.io.load(f.name)
+        return object
+
+
+    if tempdir:
+        if not os.path.exists('tmp'):
+            os.makedirs('tmp')
+        work_dir='./tmp'
+    else:
+        work_dir='.'
+
+    if prefix:
+        key=str(prefix)+"_"+key
+    key=key+'.h5'
+
+    return ediblepickle.checkpoint(key = string.Template(key), work_dir=work_dir, refresh=refresh, pickler=_checkpoint_pickler, unpickler=_checkpoint_unpickler)

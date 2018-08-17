@@ -22,7 +22,7 @@ def setup_package():
         author_email='dgerosa@caltech.edu',
         license='MIT',
         packages=['skywalker'],
-        install_requires=['matplotlib','tqdm'],
+        install_requires=['matplotlib','tqdm','ediblepickle','deepdish','contexttimer'],
         include_package_data=True,
         zip_safe=False,
     )
