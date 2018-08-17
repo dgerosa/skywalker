@@ -5,7 +5,7 @@ This is a module which contains some of the things I like in python. I was tired
 
 ### Installation
 
-pip install skywalker
+    pip install skywalker
 
 ### Usage
 
