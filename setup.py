@@ -4,7 +4,7 @@
 from setuptools import setup
 
 def get_meta(metaname):
-    with open('spops/spops.py') as f:
+    with open('skywalker/skywalker.py') as f:
         for line in f.readlines():
             if "__"+metaname+"__" in line and "__main__" not in line:
                 return line.split('"')[1]

@@ -18,14 +18,16 @@ def test_timer():
     return range(int(1e7))
 
 def test_checkpoint():
+    import time
 
     @skywalker.checkpoint('checkpoint_{0}_${arg}')
     def long_calculation(x,arg=10):
-        return range(int(1e7))
+        time.sleep(5)
+        return x,arg
 
-    long_calculation(2,arg=10)
-    long_calculation(2,arg=10)
-    long_calculation(1,arg=20)
+    print(long_calculation(2,arg=10))
+    print(long_calculation(2,arg=10))
+    print(long_calculation(1,arg=20))
 
 if __name__ == "__main__":
 
