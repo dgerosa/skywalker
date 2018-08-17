@@ -11,7 +11,7 @@ This is a module which contains some of the things I like in python. I was tired
 
 #### skywalker.plot
 
-This is a decorator to handle various matplotlib options, including saving the file to pdf. Just add @skywalker.plot to a function that returns a matplotlib figure object. If a list of figure objects is returned, save a single pdf with many pages.
+This is a decorator to handle various matplotlib options, including saving the file to pdf. Just add `@skywalker.plot` to a function that returns a matplotlib figure object. If a list of figure objects is returned, save a single pdf with many pages.
 
     import matplotlib.pyplot as plt
     import skywalker
