@@ -1,5 +1,7 @@
 # skywalker
 
+#### Things I like in Python
+
 This is a module which contains some of the things I like in python. I was tired of copying the same snippets over and over, so I put them in a module to be imported from everywhere.
 
 ### Installation
