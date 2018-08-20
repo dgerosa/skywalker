@@ -52,7 +52,7 @@ Decorator to checkpoint the output of a function to hdf5 files. Add `@skywalker.
 
 
 
-### Updates
+### Cite me
 
 If you want to cite this code: [![DOI](https://zenodo.org/badge/134632789.svg)](https://zenodo.org/badge/latestdoi/134632789)
 
