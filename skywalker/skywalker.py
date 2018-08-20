@@ -10,7 +10,7 @@ warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 
 if __name__!="__main__":
     __name__            = "skywalker"
-__version__             = "0.0.2"
+__version__             = "0.0.4"
 __description__         = "Things I like in python"
 __license__             = "MIT"
 __author__              = "Davide Gerosa"
