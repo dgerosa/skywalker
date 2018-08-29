@@ -54,7 +54,7 @@ Decorator to checkpoint the output of a function to hdf5 files. Add `@skywalker.
 
 #### skywalker.singleton
 
-Decorator to implement the [singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern). A single instance of a the decorated class can exist at any time. If multiple instances are initiated, identical pointers are return.  Here I use the [singleton_decorator](https://pypi.org/project/singleton-decorator/) module.
+Decorator to implement the [singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern) in Python. A single instance of the decorated class can exist at any time. If multiple instances are initiated, identical pointers are returned.  Here I use the [singleton_decorator](https://pypi.org/project/singleton-decorator/) module.
 
 ```
 import skywalker
