@@ -19,7 +19,7 @@ setup(
     url=get_meta('url'),
     long_description="See: `"+get_meta('url')+" <"+get_meta('url')+">`_." ,
     packages=[get_meta('name')],
-    install_requires=['matplotlib','tqdm','ediblepickle','deepdish','contexttimer'],
+    install_requires=['matplotlib','tqdm','ediblepickle','deepdish','contexttimer','singleton_decorator'],
     include_package_data=True,
     zip_safe=False,
 )
