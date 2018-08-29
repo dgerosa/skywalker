@@ -63,7 +63,7 @@ Decorator to implement the [singleton pattern](https://en.wikipedia.org/wiki/Sin
 
 ### skywalker.processify
 
-Decorator to spawn a new process every time a function is called. Full credit for this incredibly nice piece of code goes to [schlamar](gist.github.com/schlamar/2311116).
+Decorator to spawn a new process every time a function is called. Full credit for this incredibly nice piece of code goes to [schlamar](https://gist.github.com/schlamar/2311116).
 
     def test_processify():
 
