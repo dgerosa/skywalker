@@ -113,3 +113,8 @@ def checkpoint(key,tempdir=False,prefix=None,refresh=False):
     key=key+'.h5'
 
     return ediblepickle.checkpoint(key = string.Template(key), work_dir=work_dir, refresh=refresh, pickler=_checkpoint_pickler, unpickler=_checkpoint_unpickler)
+
+
+import singleton_decorator
+singleton = singleton_decorator.singleton
+'''Decorator to implement the singleton pattern. A single instance of a the decorated class can exist at any time. If multiple instances are initiated, identical pointers are return.  Here I use the singleton_decorator module.'''
