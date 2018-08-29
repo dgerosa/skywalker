@@ -71,6 +71,18 @@ def test_singleton():
     print(s1,s2, s1==s2)
 ```
 
+#### skywalker.processify
+
+Decorator to spawn a new process every time a function is called. Full credit for this incredibly nice piece of code goes to [schlamar](gist.github.com/schlamar/2311116).
+
+def test_processify():
+
+    @skywalker.processify
+    def tricky():
+        return os.getpid()
+
+    print(os.getpid(), tricky(), tricky())
+
 
 
 ### Cite me
