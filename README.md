@@ -34,7 +34,7 @@ Decorator to print a function execution time to screen.
 
 ### skywalker.checkpoint
 
-Decorator to checkpoint the output of a function to hdf5 files. Add `@skywalker.checkpoint(key=filename)` before a function and the output will be stored to file and computed only if necessary. Filename can be dynamic, see options of the ediblepickle module.
+Decorator to checkpoint the output of a function to hdf5 files. Add `@skywalker.checkpoint(key=filename)` before a function and the output will be stored to file and computed only if necessary. Filename can be dynamic, see options of the [ediblepickle](https://github.com/mpavan/ediblepickle) module.
     
     def test_checkpoint():
     
