@@ -10,7 +10,7 @@ warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 
 if __name__!="__main__":
     __name__            = "skywalker"
-__version__             = "0.0.5"
+__version__             = "0.0.6"
 __description__         = "Things I like in python"
 __license__             = "MIT"
 __author__              = "Davide Gerosa"
@@ -115,6 +115,10 @@ def checkpoint(key,tempdir=False,prefix=None,refresh=False):
     return ediblepickle.checkpoint(key = string.Template(key), work_dir=work_dir, refresh=refresh, pickler=_checkpoint_pickler, unpickler=_checkpoint_unpickler)
 
 
-import singleton_decorator
-singleton = singleton_decorator.singleton
-'''Decorator to implement the singleton pattern. A single instance of a the decorated class can exist at any time. If multiple instances are initiated, identical pointers are return.  Here I use the singleton_decorator module.'''
+#import singleton_decorator
+#singleton = singleton_decorator.singleton
+#'''Decorator to implement the singleton pattern. A single instance of a the decorated class can exist at any time. If multiple instances are initiated, identical pointers are return.  Here I use the singleton_decorator module.'''
+
+#import processify
+#processify = processify.processify
+#''' ADD COMMENTS'''

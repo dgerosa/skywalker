@@ -9,4 +9,5 @@ from .skywalker import __url__
 from .skywalker import plot
 from .skywalker import timer
 from .skywalker import checkpoint
-from .skywalker import singleton
+from singleton_decorator import singleton
+from processify import processify

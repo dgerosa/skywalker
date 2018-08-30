@@ -1,5 +1,6 @@
 from __future__ import print_function
 import skywalker
+import os
 
 @skywalker.plot
 def test_plot():
@@ -42,10 +43,20 @@ def test_singleton():
     print(s1,s2, s1==s2)
 
 
+def test_processify():
+
+    @skywalker.processify
+    def tricky():
+        return os.getpid()
+
+    print(os.getpid(), tricky(), tricky())
+
+
 if __name__ == "__main__":
 
     pass
     #test_plot()
     #test_timer()
     #test_checkpoint()
-    test_singleton()
+    #test_singleton()
+    test_processify()
