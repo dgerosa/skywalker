@@ -52,6 +52,19 @@ def test_processify():
     print(os.getpid(), tricky(), tricky())
 
 
+
+def test_dontprint():
+
+    def message():
+        print("Function is printing")
+
+    print("Main is printing")
+    message()
+    with skywalker.dontprint():
+        message()
+
+
+
 if __name__ == "__main__":
 
     pass
@@ -59,4 +72,4 @@ if __name__ == "__main__":
     #test_timer()
     #test_checkpoint()
     #test_singleton()
-    test_processify()
+    test_dontprint()

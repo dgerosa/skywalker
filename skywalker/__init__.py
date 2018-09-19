@@ -11,3 +11,4 @@ from .skywalker import timer
 from .skywalker import checkpoint
 from singleton_decorator import singleton
 from processify import processify
+from .skywalker import dontprint

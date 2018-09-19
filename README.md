@@ -51,12 +51,12 @@ Decorator to checkpoint the output of a function to hdf5 files. Add `@skywalker.
 Decorator to implement the [singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern) in Python. A single instance of the decorated class can exist at any time. If multiple instances are initiated, identical pointers are returned.  Here I use the [singleton_decorator](https://pypi.org/project/singleton-decorator/) module.
 
     def test_singleton():
-
+    
         @skywalker.singleton
         class simple(object):
             def simple(self,x):
                 return x
-
+    
         s1=simple()
         s2=simple()
         print(s1,s2, s1==s2)
@@ -66,13 +66,28 @@ Decorator to implement the [singleton pattern](https://en.wikipedia.org/wiki/Sin
 Decorator to spawn a new process every time a function is called. Full credit for this incredibly nice piece of code goes to [schlamar](https://gist.github.com/schlamar/2311116).
 
     def test_processify():
-
+    
         @skywalker.processify
         def tricky():
             return os.getpid()
-
+    
         print(os.getpid(), tricky(), tricky())
 
+### skywalker.dontprint
+
+A context manager to suppress all printouts, both stdout and stderr. Full credit goes to [randlet](https://stackoverflow.com/questions/11130156/suppress-stdout-stderr-print-from-python-functionsorator).
+
+```
+def test_dontprint():
+
+    def message():
+        print("Function is printing")
+
+    print("Main is printing")
+    message()
+    with skywalker.dontprint():
+        message()
+```
 
 ## Cite me
 
