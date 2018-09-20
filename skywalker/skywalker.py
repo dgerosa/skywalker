@@ -10,7 +10,7 @@ import os
 
 if __name__!="__main__":
     __name__            = "skywalker"
-__version__             = "0.0.7"
+__version__             = "0.0.8"
 __description__         = "Things I like in python"
 __license__             = "MIT"
 __author__              = "Davide Gerosa"
@@ -85,35 +85,49 @@ def timer(function):
     return wrapper
 
 
-def checkpoint(key,tempdir=False,prefix=None,refresh=False):
-    '''Decorator to checkpoint the output of a function to hdf5 files. Add @skywalker.checkpoint(key=filename) before a function and the output will be stored to file and computed only if necessary. Filename can be dynamic, see options of the ediblepickle module.'''
 
-    import ediblepickle
+def checkpoint(key, argvals=False, tempdir=False, refresh=False,verbose=True):
+    '''Decorator to checkpoint the output of a function to hdf5 files. Add @skywalker.checkpoint(key=filename) before a function and the output will be stored to file and computed only if necessary. Function's args and kwargs can be put into the filename as well. Deeply inspired by https://github.com/mpavan/ediblepickle.'''
+
     import deepdish
-    import string
 
-    def _checkpoint_pickler(object,f):
-        deepdish.io.save(f.name,object)
-        pass
+    def decorator(func):
 
-    def _checkpoint_unpickler(f):
-        object = deepdish.io.load(f.name)
-        return object
+        if tempdir:
+            if not os.path.exists('tmp'):
+                os.makedirs('tmp')
+            work_dir='./tmp'
+        else:
+            work_dir='.'
 
 
-    if tempdir:
-        if not os.path.exists('tmp'):
-            os.makedirs('tmp')
-        work_dir='./tmp'
-    else:
-        work_dir='.'
+        def wrapped(*args, **kwargs):
 
-    if prefix:
-        key=str(prefix)+"_"+key
-    key=key+'.h5'
+            if argvals:
+                save_file = work_dir+"/"+key+"_"+"_".join(str(x) for x in args)+"_"+"_".join(str(kwargs[x]) for x in kwargs)+'.h5'
+            else:
+                save_file = work_dir+"/"+key+'.h5'
 
-    return ediblepickle.checkpoint(key = string.Template(key), work_dir=work_dir, refresh=refresh, pickler=_checkpoint_pickler, unpickler=_checkpoint_unpickler)
+            if refresh or not os.path.exists(path=save_file):  # Otherwise compute it save it and return it.
+                # If the program fails, don't checkpoint.
+                try:
+                    out = func(*args, **kwargs)
+                except: # a blank raise re-raises the last exception.
+                    raise
+                else:  # If the program is successful, then go ahead and call the save function.
+                    if verbose:
+                        print('[skywalker.checkpoint] Save: '+save_file)
+                    deepdish.io.save(save_file,out)
+                    return out
+            # Otherwise, load the checkpoint file and send it.
+            else:
+                if verbose:
+                    print('[skywalker.checkpoint] Load: '+save_file)
+                return deepdish.io.load(save_file)
 
+        return wrapped
+
+    return decorator
 
 
 class dontprint(object):

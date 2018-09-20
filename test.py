@@ -12,16 +12,15 @@ def test_plot():
     ax.plot(x,y)
     return fig
 
-#@skywalker.timer
-
 @skywalker.timer
 def test_timer():
     return range(int(1e7))
 
 def test_checkpoint():
+
     import time
 
-    @skywalker.checkpoint('checkpoint_{0}_${arg}')
+    @skywalker.checkpoint('checkpoint',argvals=True)
     def long_calculation(x,arg=10):
         time.sleep(5)
         return x,arg
@@ -70,6 +69,6 @@ if __name__ == "__main__":
     pass
     #test_plot()
     #test_timer()
-    #test_checkpoint()
+    test_checkpoint()
     #test_singleton()
-    test_dontprint()
+    #test_dontprint()

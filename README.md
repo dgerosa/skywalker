@@ -13,7 +13,6 @@ This is a module which contains some of the things I like in python. I was tired
 ### skywalker.plot
 
 This is a decorator to handle various matplotlib options, including saving the file to pdf. Just add `@skywalker.plot` to a function that returns a matplotlib figure object. If a list of figure objects is returned, save a single pdf with many pages.
-    
     @skywalker.plot
     def test_plot():
         import matplotlib.pyplot as plt
@@ -27,24 +26,25 @@ This is a decorator to handle various matplotlib options, including saving the f
 ### skywalker.timer
 
 Decorator to print a function execution time to screen.
-    
     @skywalker.timer
     def test_timer():
         return range(int(1e7))
 
 ### skywalker.checkpoint
 
-Decorator to checkpoint the output of a function to hdf5 files. Add `@skywalker.checkpoint(key=filename)` before a function and the output will be stored to file and computed only if necessary. Filename can be dynamic, see options of the [ediblepickle](https://github.com/mpavan/ediblepickle) module.
-    
+Decorator to checkpoint the output of a function to hdf5 files. Add `@skywalker.checkpoint(filename)` before a function and the output will be stored to file and computed only if necessary. Function's args and kwargs can be put into the filename as well. Deeply inspired by the [ediblepickle](https://github.com/mpavan/ediblepickle) module. 
     def test_checkpoint():
     
-        @skywalker.checkpoint('checkpoint_{0}_${arg}')
-        def long_calculation(x,arg=10):
-            return range(int(1e7))
+        import time
     
-        long_calculation(2,arg=10)
-        long_calculation(2,arg=10)
-        long_calculation(1,arg=20)
+        @skywalker.checkpoint('checkpoint',argvals=True)
+        def long_calculation(x,arg=10):
+            time.sleep(5)
+            return x,arg
+    
+        print(long_calculation(2,arg=10))
+        print(long_calculation(2,arg=10))
+        print(long_calculation(1,arg=20))
 
 ### skywalker.singleton
 
