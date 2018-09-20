@@ -77,17 +77,15 @@ Decorator to spawn a new process every time a function is called. Full credit fo
 
 A context manager to suppress all printouts, both stdout and stderr. Full credit goes to [randlet](https://stackoverflow.com/questions/11130156/suppress-stdout-stderr-print-from-python-functionsorator).
 
-```
-def test_dontprint():
+    def test_dontprint():
 
-    def message():
-        print("Function is printing")
+        def message():
+            print("Function is printing")
 
-    print("Main is printing")
-    message()
-    with skywalker.dontprint():
+        print("Main is printing")
         message()
-```
+        with skywalker.dontprint():
+            message()
 
 ## Cite me
 
