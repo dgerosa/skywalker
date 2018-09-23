@@ -10,7 +10,7 @@ import os
 
 if __name__!="__main__":
     __name__            = "skywalker"
-__version__             = "0.0.8"
+__version__             = "0.0.9"
 __description__         = "Things I like in python"
 __license__             = "MIT"
 __author__              = "Davide Gerosa"
@@ -103,10 +103,13 @@ def checkpoint(key, argvals=False, tempdir=False, refresh=False,verbose=True):
 
         def wrapped(*args, **kwargs):
 
-            if argvals:
-                save_file = work_dir+"/"+key+"_"+"_".join(str(x) for x in args)+"_"+"_".join(str(kwargs[x]) for x in kwargs)+'.h5'
-            else:
-                save_file = work_dir+"/"+key+'.h5'
+
+            save_file = work_dir+"/"+key
+            if argvals and args:
+                save_file += "_"+"_".join(str(x) for x in args)
+            if argvals and kwargs:
+                save_file+="_"+"_".join(str(kwargs[x]) for x in kwargs)
+            save_file=save_file+'.h5'
 
             if refresh or not os.path.exists(path=save_file):  # Otherwise compute it save it and return it.
                 # If the program fails, don't checkpoint.
