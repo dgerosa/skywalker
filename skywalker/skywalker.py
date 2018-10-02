@@ -6,11 +6,16 @@ from __future__ import print_function
 import warnings
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 import os
+from tqdm import tqdm
+from functools import wraps
+from contexttimer import Timer
+import datetime
+import deepdish
 
 
 if __name__!="__main__":
     __name__            = "skywalker"
-__version__             = "0.0.9"
+__version__             = "0.0.9.1"
 __description__         = "Things I like in python"
 __license__             = "MIT"
 __author__              = "Davide Gerosa"
@@ -23,8 +28,6 @@ def plot(function):
 
     def wrapper(*args, **kwargs):
         print("[skywalker.plot] "+function.__name__+".pdf")
-
-        from tqdm import tqdm
 
         # Before function call
         global plt,AutoMinorLocator,MultipleLocator,LogLocator,NullFormatter,LogNorm
@@ -71,11 +74,8 @@ def plot(function):
 
 
 def timer(function):
-    from functools import wraps
     @wraps(function)
     def wrapper(*args, **kwargs):
-        from contexttimer import Timer
-        import datetime
 
         with Timer() as t:
             function(*args, **kwargs)
@@ -88,8 +88,6 @@ def timer(function):
 
 def checkpoint(key, argvals=False, tempdir=False, refresh=False,verbose=True):
     '''Decorator to checkpoint the output of a function to hdf5 files. Add @skywalker.checkpoint(key=filename) before a function and the output will be stored to file and computed only if necessary. Function's args and kwargs can be put into the filename as well. Deeply inspired by https://github.com/mpavan/ediblepickle.'''
-
-    import deepdish
 
     def decorator(func):
 
