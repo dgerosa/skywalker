@@ -15,7 +15,7 @@ import deepdish
 
 if __name__!="__main__":
     __name__            = "skywalker"
-__version__             = "0.0.10"
+__version__             = "0.0.11"
 __description__         = "Things I like in python"
 __license__             = "MIT"
 __author__              = "Davide Gerosa"
@@ -140,7 +140,7 @@ class dontprint(object):
         # Open a pair of null files
         self.null_fds =  [os.open(os.devnull,os.O_RDWR) for x in range(2)]
         # Save the actual stdout (1) and stderr (2) file descriptors.
-        self.save_fds = (os.dup(1), os.dup(2))
+        self.save_fds = [os.dup(1), os.dup(2)]
 
     def __enter__(self):
         # Assign the null pointers to stdout and stderr.
@@ -151,6 +151,6 @@ class dontprint(object):
         # Re-assign the real stdout/stderr back to (1) and (2)
         os.dup2(self.save_fds[0],1)
         os.dup2(self.save_fds[1],2)
-        # Close the null files
-        os.close(self.null_fds[0])
-        os.close(self.null_fds[1])
+        # Close all file descriptors
+        for fd in self.null_fds + self.save_fds:
+            os.close(fd)
