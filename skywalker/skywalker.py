@@ -78,9 +78,11 @@ def timer(function):
     def wrapper(*args, **kwargs):
 
         with Timer() as t:
-            function(*args, **kwargs)
+            out =function(*args, **kwargs)
 
         print("[skywalker.timer] "+function.__name__+" "+str(datetime.timedelta(seconds=t.elapsed)))
+
+        return out
 
     return wrapper
 
