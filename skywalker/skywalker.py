@@ -15,7 +15,7 @@ import deepdish
 
 if __name__!="__main__":
     __name__            = "skywalker"
-__version__             = "0.0.11"
+__version__             = "0.0.12"
 __description__         = "Things I like in python"
 __license__             = "MIT"
 __author__              = "Davide Gerosa"
