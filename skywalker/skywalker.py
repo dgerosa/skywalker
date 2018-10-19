@@ -5,6 +5,7 @@ This is a module which contains some of the things I like in python. I was tired
 from __future__ import print_function
 import warnings
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
+warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
 import os
 from tqdm import tqdm
 from functools import wraps
@@ -15,7 +16,7 @@ import deepdish
 
 if __name__!="__main__":
     __name__            = "skywalker"
-__version__             = "0.0.12"
+__version__             = "0.0.13"
 __description__         = "Things I like in python"
 __license__             = "MIT"
 __author__              = "Davide Gerosa"
@@ -100,15 +101,28 @@ def checkpoint(key, argvals=False, tempdir=False, refresh=False,verbose=True):
         else:
             work_dir='.'
 
-
+        @wraps(func)
         def wrapped(*args, **kwargs):
 
 
             save_file = work_dir+"/"+key
-            if argvals and args:
-                save_file += "_"+"_".join(str(x) for x in args)
-            if argvals and kwargs:
-                save_file+="_"+"_".join(str(kwargs[x]) for x in kwargs)
+
+            if argvals==False:
+                pass
+
+            elif argvals==True:
+                if args:
+                    save_file += "_"+"_".join(str(x) for x in args)
+                if kwargs:
+                    save_file+="_"+"_".join(str(kwargs[x]) for x in kwargs)
+
+            else:
+                for x in argvals: # this is in args
+                    if len(args)>x:
+                        save_file += "_"+str(args[x])
+                    else:
+                        save_file += "_"+str(kwargs[kwargs.keys()[x-len(args)]])
+
             save_file=save_file+'.h5'
 
             if refresh or not os.path.exists(path=save_file):  # Otherwise compute it save it and return it.

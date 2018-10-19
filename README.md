@@ -34,9 +34,9 @@ Decorator to print a function execution time to screen.
 
 ### skywalker.checkpoint
 
-Decorator to checkpoint the output of a function to hdf5 files. Add `@skywalker.checkpoint(filename)` before a function and the output will be stored to file and computed only if necessary. Function's args and kwargs can be put into the filename as well. Deeply inspired by the [ediblepickle](https://github.com/mpavan/ediblepickle) module. 
+Decorator to checkpoint the output of a function to hdf5 files. Add `@skywalker.checkpoint(filename)` before a function and the output will be stored to file and computed only if necessary. Deeply inspired by the [ediblepickle](https://github.com/mpavan/ediblepickle) module.
  
-    def test_checkpoint():
+ 	def test_checkpoint():
     
         import time
     
@@ -48,6 +48,14 @@ Decorator to checkpoint the output of a function to hdf5 files. Add `@skywalker.
         print(long_calculation(2,arg=10))
         print(long_calculation(2,arg=10))
         print(long_calculation(1,arg=20))
+
+
+Options are:
+
+- `argvals`. If True all args will be listed in the file name. If False (default), none of them will. If, e.g., [0,3] only the first and the fourth arg/kwarg will be listed.
+- `refresh`. If True, disable checkpointing
+- `tempdir`. If True, store in `./tmp`
+
 
 ### skywalker.singleton
 
