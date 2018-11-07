@@ -19,7 +19,7 @@ pages:
 
 # Where to build
 docs_dir: _tmp
-gens_dir: _build     # This will end up as the MkDocs 'docs_dir'
+gens_dir: _build
 site_dir: docs
 headers: markdown
 
