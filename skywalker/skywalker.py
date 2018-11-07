@@ -18,7 +18,7 @@ import singleton_decorator
 
 if __name__!="__main__":
     __name__            = "skywalker"
-__version__             = "0.0.13"
+__version__             = "0.0.2"
 __description__         = "Things I like in python"
 __license__             = "MIT"
 __author__              = "Davide Gerosa"
