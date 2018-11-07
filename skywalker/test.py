@@ -1,9 +1,20 @@
+'''
+This submodule contains various tests of `skywalker` tools. Run with e.g. `skywalker.test_something`.
+'''
+
 from __future__ import print_function
-import skywalker
-import os
+import os,sys
+if sys.version_info[0] > 2: # relative imports are different in python 2 and 3
+    import skywalker.skywalker as skywalker
+else:
+    import skywalker
 
 @skywalker.plot
 def test_plot():
+    '''
+    Test of `skywalker.plot`.
+    '''
+
     import matplotlib.pyplot as plt
     x=range(100)
     y=range(100)
@@ -14,9 +25,15 @@ def test_plot():
 
 @skywalker.timer
 def test_timer():
-    return range(int(1e7))
+    '''
+    Test of `skywalker.timer`.
+    '''
+    x= range(int(1e7))
 
 def test_checkpoint():
+    '''
+    Test of `skywalker.checkpoint`.
+    '''
 
     import time
 
@@ -31,6 +48,9 @@ def test_checkpoint():
 
 
 def test_singleton():
+    '''
+    Test of `skywalker.singleton`.
+    '''
 
     @skywalker.singleton
     class simple(object):
@@ -43,6 +63,9 @@ def test_singleton():
 
 
 def test_processify():
+    '''
+    Test of `skywalker.processify`.
+    '''
 
     @skywalker.processify
     def tricky():
@@ -53,6 +76,9 @@ def test_processify():
 
 
 def test_dontprint():
+    '''
+    Test of `skywalker.dontprint`.
+    '''
 
     def message():
         print("Function is printing")
@@ -69,6 +95,6 @@ if __name__ == "__main__":
     pass
     #test_plot()
     #test_timer()
-    test_checkpoint()
+    #test_checkpoint()
     #test_singleton()
     #test_dontprint()
