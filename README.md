@@ -11,10 +11,10 @@ This is a module which contains some of the things I like in python. I was tired
 ## Docs
 
 **Repository**:
-[dgerosa.github.io/skywalker/docs](http://dgerosa.github.io/skywalker/docs).
+[github.com/dgerosa/skywalker](https://github.com/dgerosa/skywalker).
 
 **Documentation**:
-[dgerosa.github.io/skywalker/docs](http://dgerosa.github.io/skywalker/docs).
+[dgerosa.github.io/skywalker](http://dgerosa.github.io/skywalker).
 
 **Webpage**:
 [davidegerosa.com/skywalker/](https://davidegerosa.com/skywalker/).
