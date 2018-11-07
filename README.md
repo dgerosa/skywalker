@@ -10,8 +10,14 @@ This is a module which contains some of the things I like in python. I was tired
 
 ## Docs
 
-Browse the documentation at [dgerosa.github.io/skywalker/docs](http://dgerosa.github.io/skywalker/docs).
+**Repository**:
+[dgerosa.github.io/skywalker/docs](http://dgerosa.github.io/skywalker/docs).
 
+**Documentation**:
+[dgerosa.github.io/skywalker/docs](http://dgerosa.github.io/skywalker/docs).
+
+**Webpage**:
+[davidegerosa.com/skywalker/](https://davidegerosa.com/skywalker/).
 
 ## Cite me
 
