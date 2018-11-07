@@ -1,0 +1,44 @@
+# Build documentatio with
+# pydocmd build
+
+
+site_name: "skywalker"
+
+# Generate markdown with pydocmd
+generate:
+- docs.md:
+  - skywalker++ # (+ to include members) (++ to include members, and their members)
+- tests.md:
+  - skywalker.test+
+
+# Html pages from markdown
+pages:
+- Readme: index.md << README.md
+- Docs: docs.md
+- Tests: tests.md
+
+# Where to build
+docs_dir: _tmp
+gens_dir: _build     # This will end up as the MkDocs 'docs_dir'
+site_dir: docs
+headers: markdown
+
+# Mkdocs theme
+theme:
+  name: material
+  palette:
+    primary: 'blue grey'
+    accent: 'blue grey'
+  logo:
+    icon: 'code '
+#extra:
+#  social:
+#    - type: 'github'
+#      link: 'https://github.com/dgerosa'
+
+repo_name: 'dgerosa/skywalker'
+repo_url: 'https://github.com/dgerosa/skywalker'
+#  feature:
+#    tabs: true
+
+sort: 'name'
