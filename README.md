@@ -10,7 +10,7 @@ This is a module which contains some of the things I like in python. I was tired
 
 ## Docs
 
-Browse the documentation at [http://dgerosa.github.io/skywalker/docs](http://dgerosa.github.io/skywalker/docs)
+Browse the documentation at [dgerosa.github.io/skywalker/docs](http://dgerosa.github.io/skywalker/docs).
 
 
 ## Cite me
