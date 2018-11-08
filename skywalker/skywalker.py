@@ -1,6 +1,5 @@
 '''
-`skywalker` is a module that contains some of the things I like in python. I was tired of copying the same snippets over and over, so I put them in a module to be imported from everywhere.
-Repository: [github.com/dgerosa/skywalker](https://github.com/dgerosa/skywalker).
+Here below is a list of tools in `skywalker`.
 '''
 
 from __future__ import print_function

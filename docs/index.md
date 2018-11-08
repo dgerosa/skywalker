@@ -8,16 +8,16 @@ This is a module which contains some of the things I like in python. I was tired
 
     pip install skywalker
 
-## Docs
+## Useful links
 
-**Repository**:
-[github.com/dgerosa/skywalker](https://github.com/dgerosa/skywalker).
+Repository:
+[github.com/dgerosa/skywalker](https://github.com/dgerosa/skywalker)
 
-**Documentation**:
-[dgerosa.github.io/skywalker](http://dgerosa.github.io/skywalker).
+Documentation:
+[dgerosa.github.io/skywalker](http://dgerosa.github.io/skywalker)
 
-**Webpage**:
-[davidegerosa.com/skywalker/](https://davidegerosa.com/skywalker/).
+Webpage:
+[davidegerosa.com/skywalker/](https://davidegerosa.com/skywalker/)
 
 ## Cite me
 

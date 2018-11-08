@@ -6,7 +6,7 @@ site_name: "skywalker"
 
 # Generate markdown with pydocmd
 generate:
-- docs.md:
+- user.md:
   - skywalker++ # (+ to include members) (++ to include members, and their members)
 - tests.md:
   - skywalker.test+
@@ -14,7 +14,7 @@ generate:
 # Html pages from markdown
 pages:
 - Readme: index.md << README.md
-- Docs: docs.md
+- User guide: user.md
 - Tests: tests.md
 
 # Where to build
