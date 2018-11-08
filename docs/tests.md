@@ -1,6 +1,6 @@
 # skywalker.test
 
-This submodule contains various tests of `skywalker` tools. Run with e.g. `skywalker.test_something`.
+Here are some functions to test the `skywalker` tools. Run with e.g. `skywalker.test_something`.
 
 ## test_checkpoint
 ```python

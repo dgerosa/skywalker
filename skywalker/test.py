@@ -1,5 +1,5 @@
 '''
-This submodule contains various tests of `skywalker` tools. Run with e.g. `skywalker.test_something`.
+Here are some functions to test the `skywalker` tools. Run with e.g. `skywalker.test_something`.
 '''
 
 from __future__ import print_function
