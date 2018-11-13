@@ -10,7 +10,7 @@
 
 ## Useful links
 
- - Repository: [github.com/dgerosa/skywalker](https://github.com/dgerosa/skywalker)
+- Repository: [github.com/dgerosa/skywalker](https://github.com/dgerosa/skywalker)
 - Documentation: [dgerosa.github.io/skywalker](http://dgerosa.github.io/skywalker)
 - Webpage: [davidegerosa.com/skywalker/](https://davidegerosa.com/skywalker/)
 - Python Package Index: [pypi.org/project/skywalker](https://pypi.org/project/skywalker/)
