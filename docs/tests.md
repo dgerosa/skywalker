@@ -18,7 +18,7 @@ Test of `skywalker.dontprint`.
 
 ## test_plot
 ```python
-test_plot(*args, **kwargs)
+test_plot()
 ```
 
 Test of `skywalker.plot`.
@@ -39,7 +39,7 @@ Test of `skywalker.singleton`.
 
 ## test_timer
 ```python
-test_timer(*args, **kwargs)
+test_timer()
 ```
 
 Test of `skywalker.timer`.
