@@ -20,7 +20,7 @@ from multiprocessing import Process, Queue
 
 if __name__!="__main__":
     __name__            = "skywalker"
-__version__             = "0.0.15"
+__version__             = "0.0.16"
 __description__         = "Things I like in python"
 __license__             = "MIT"
 __author__              = "Davide Gerosa"
@@ -165,7 +165,7 @@ def checkpoint(key, argvals=False, tempdir=False, refresh=False,verbose=True):
                     if len(args)>x:
                         save_file += "_"+str(args[x])
                     else:
-                        save_file += "_"+str(kwargs[kwargs.keys()[x-len(args)]])
+                        save_file += "_"+str(kwargs[list(kwargs.keys())[x-len(args)]])
 
             save_file=save_file+'.h5'
 
