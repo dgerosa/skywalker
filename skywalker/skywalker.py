@@ -20,7 +20,7 @@ from multiprocessing import Process, Queue
 
 if __name__!="__main__":
     __name__            = "skywalker"
-__version__             = "0.0.16"
+__version__             = "0.0.17"
 __description__         = "Things I like in python"
 __license__             = "MIT"
 __author__              = "Davide Gerosa"
@@ -60,10 +60,12 @@ def plot(function):
         #rc.rcParams['text.latex.preamble']=[r"\usepackage{amsmath}"]
         #rc('text.latex',preamble=r"\usepackage{amsmath}")
         import matplotlib
-        matplotlib.rcParams['text.latex.preamble']=[r"\usepackage{amsmath}"]
+        matplotlib.rcParams['text.latex.preamble']=r"\usepackage{amsmath}"
         rc('figure',max_open_warning=1000)
         rc('xtick',top=True)
         rc('ytick',right=True)
+        rc('ytick',right=True)
+        rc("axes", grid=False)
         import matplotlib.pyplot as plt
         from mpl_toolkits.mplot3d import Axes3D
         from matplotlib.backends.backend_pdf import PdfPages

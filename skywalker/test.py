@@ -4,10 +4,10 @@ Here are some functions to test the `skywalker` tools. Run with e.g. `skywalker.
 
 from __future__ import print_function
 import os,sys
-if sys.version_info[0] > 2: # relative imports are different in python 2 and 3
-    import skywalker.skywalker as skywalker
-else:
-    import skywalker
+#if sys.version_info[0] > 2: # relative imports are different in python 2 and 3
+#    import skywalker.skywalker as skywalker
+#else:
+import skywalker
 
 @skywalker.plot
 def test_plot():
@@ -92,8 +92,8 @@ def test_dontprint():
 
 if __name__ == "__main__":
 
-    pass
-    #test_plot()
+    #pass
+    test_plot()
     #test_timer()
     #test_checkpoint()
     #test_singleton()
