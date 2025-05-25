@@ -20,7 +20,7 @@ from multiprocessing import Process, Queue
 
 if __name__!="__main__":
     __name__            = "skywalker"
-__version__             = "0.0.18"
+__version__             = "0.0.20"
 __description__         = "Things I like in python"
 __license__             = "MIT"
 __author__              = "Davide Gerosa"
