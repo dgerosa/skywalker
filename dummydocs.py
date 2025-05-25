@@ -25,7 +25,7 @@ def write_markdown(items, mdfile):
                 f.write("_No docstring available._\n\n")
 
 if __name__ == "__main__":
-    pyfile = 'skywalker/skywalker.py'  # replace with the path to your Python file
+    pyfile = 'skywalker/skywalker.py'
     mdfile = 'docs.md'
     items = extract_docstrings_from_file(pyfile)
     write_markdown(items, mdfile)
