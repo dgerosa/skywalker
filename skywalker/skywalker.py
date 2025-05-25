@@ -20,11 +20,11 @@ from multiprocessing import Process, Queue
 
 if __name__!="__main__":
     __name__            = "skywalker"
-__version__             = "0.0.17"
+__version__             = "0.0.18"
 __description__         = "Things I like in python"
 __license__             = "MIT"
 __author__              = "Davide Gerosa"
-__author_email__        = "dgerosa@caltech.edu"
+__author_email__        = "davide.gerosa@unimib.it"
 __url__                 = "https://github.com/dgerosa/skywalker"
 
 
