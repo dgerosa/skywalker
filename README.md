@@ -16,14 +16,7 @@
 
 ## Tools
 
-These are some of the things you can do with `skywalker` (beside using a lightsaber, of course).  A list of all functions and tools is available in the documentation.
-
-- **checkpoint**: Smart checkpointing of function outputs to `h5` files.
-- **dontprint**: Deep output suppression.
-- **plot**: Handle matplotlib options, including saving to file.
-- **processify**: Spawn a new process everytime that function is executed.
-- **singleton**: Define that class as a singleton (one instance at any time can exist)
-- **timer**: Print execution time of a function/class.
+The things you can do with `skywalker` (beside using a lightsaber, of course) are described at [docs.md](docs.md)
 
 ## Cite me
 
