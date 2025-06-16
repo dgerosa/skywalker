@@ -16,7 +16,7 @@
 
 ## Docs
 
-The things you can do with `skywalker` (beside using a lightsaber, of course) are described at [docs.md](docs.md)
+The things you can do with `skywalker` (besides using a lightsaber, of course) are described at [docs.md](docs.md)
 
 ## Cite me
 
