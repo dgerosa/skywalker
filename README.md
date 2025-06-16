@@ -8,12 +8,6 @@
 
     pip install skywalker
 
-## Links
-
-- Repository: [github.com/dgerosa/skywalker](https://github.com/dgerosa/skywalker)
-- Webpage: [davidegerosa.com/skywalker/](https://davidegerosa.com/skywalker/)
-- Python Package Index: [pypi.org/project/skywalker](https://pypi.org/project/skywalker/)
-
 ## Docs
 
 The things you can do with `skywalker` (besides using a lightsaber, of course) are described at [docs.md](docs.md)
