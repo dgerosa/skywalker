@@ -1,5 +1,8 @@
-#python setup.py sdist upload -r test
-#python setup.py sdist upload
+# rm -rf dist/ build/ *.egg-info
+# python -m build
+# twine upload dist/*
+
+
 
 from setuptools import setup
 

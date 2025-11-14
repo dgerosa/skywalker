@@ -11,16 +11,33 @@ from tqdm import tqdm
 from functools import wraps
 from contexttimer import Timer
 import datetime
-import deepdish
 import singleton_decorator
 from functools import wraps
 from multiprocessing import Process, Queue
+import numpy as np
+
+# Patch deprecated NumPy aliases for legacy library compatibility
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore", FutureWarning)
+    if not hasattr(np, "unicode_"):
+        np.unicode_ = np.str_
+    if not hasattr(np, "string_"):
+        np.string_ = np.bytes_
+    if not hasattr(np, "object"):
+        np.object = object
+    if not hasattr(np, "ComplexWarning"):
+        class ComplexWarning(RuntimeWarning): pass
+        np.ComplexWarning = ComplexWarning
+
+import deepdish
+
+
 
 
 
 if __name__!="__main__":
     __name__            = "skywalker"
-__version__             = "0.0.20"
+__version__             = "0.0.22"
 __description__         = "Things I like in python"
 __license__             = "MIT"
 __author__              = "Davide Gerosa"
@@ -61,6 +78,8 @@ def plot(function):
         #rc('text.latex',preamble=r"\usepackage{amsmath}")
         import matplotlib
         matplotlib.rcParams['text.latex.preamble']=r"\usepackage{amsmath}"
+        matplotlib.rcParams["axes.formatter.use_mathtext"] = True
+
         rc('figure',max_open_warning=1000)
         rc('xtick',top=True)
         rc('ytick',right=True)
@@ -72,6 +91,7 @@ def plot(function):
         from matplotlib.ticker import AutoMinorLocator,MultipleLocator,LogLocator,NullFormatter
         from matplotlib.colors import LogNorm
         pp= PdfPages(function.__name__+".pdf")
+
 
         fig = function(*args, **kwargs)
         # Handle multiple figures
